@@ -34,6 +34,43 @@ body {
 .container {
     max-width: 1200px;
     width: 100%;
+    transition: margin-top 0.3s ease;
+}
+
+/* Офлайн индикатор */
+.offline-indicator {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: #e74c3c;
+    color: white;
+    text-align: center;
+    padding: 8px 0;
+    font-size: 0.9rem;
+    font-weight: 600;
+    z-index: 1000;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Сдвигаем контейнер вниз когда показан офлайн индикатор */
+.container.offline-mode {
+    margin-top: 40px;
+}
+
+/* PWA стили для fullscreen режима */
+@media all and (display-mode: standalone) {
+    body {
+        padding-top: env(safe-area-inset-top);
+        padding-bottom: env(safe-area-inset-bottom);
+    }
+}
+
+/* iOS Safari status bar */
+@media all and (-webkit-min-device-pixel-ratio: 0) and (min-color-index: 0) {
+    .container {
+        padding-top: 20px;
+    }
 }
 
 /* SVG иконки */
@@ -336,6 +373,15 @@ header {
         width: 50px;
         height: 50px;
     }
+    
+    .offline-indicator {
+        font-size: 0.8rem;
+        padding: 6px 0;
+    }
+    
+    .container.offline-mode {
+        margin-top: 35px;
+    }
 }
 
 @media (max-width: 480px) {
@@ -377,5 +423,14 @@ header {
     .nav-btn {
         width: 45px;
         height: 45px;
+    }
+    
+    .offline-indicator {
+        font-size: 0.75rem;
+        padding: 5px 0;
+    }
+    
+    .container.offline-mode {
+        margin-top: 30px;
     }
 }

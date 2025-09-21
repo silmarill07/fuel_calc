@@ -4,10 +4,28 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Паливний калькулятор</title>
-    <link rel="icon" type="image/png" sizes="16x16"  href="favicons/favicon-16x16.png">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" sizes="16x16" href="favicons/favicon-16x16.png">
+
+    <!-- Web App Manifest -->
+    <link rel="manifest" href="manifest.json">
+    
+    <!-- PWA Meta Tags -->
+    <meta name="theme-color" content="#1abc9c">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="Паливо">
+    
+    <!-- Styles -->
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <!-- Offline indicator -->
+    <div id="offline-indicator" class="offline-indicator" style="display: none;">
+        <span>Режим офлайн</span>
+    </div>
+    
     <div class="container">
         <!-- Header -->
         <header>
@@ -36,6 +54,39 @@
             <!-- Indicators will be generated dynamically -->
         </div>
     </div>
+
+    <!-- Scripts -->
     <script src="script.js"></script>
+    <script>
+        // Регистрируем Service Worker
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', function() {
+                navigator.serviceWorker.register('/service-worker.js')
+                .then(function(registration) {
+                    console.log('ServiceWorker registration successful');
+                }, function(err) {
+                    console.log('ServiceWorker registration failed: ', err);
+                });
+            });
+        }
+
+        // Показываем индикатор офлайн режима
+        function updateOnlineStatus() {
+            const offlineIndicator = document.getElementById('offline-indicator');
+            const container = document.querySelector('.container');
+            
+            if (navigator.onLine) {
+                offlineIndicator.style.display = 'none';
+                container.classList.remove('offline-mode');
+            } else {
+                offlineIndicator.style.display = 'block';
+                container.classList.add('offline-mode');
+            }
+        }
+
+        window.addEventListener('online', updateOnlineStatus);
+        window.addEventListener('offline', updateOnlineStatus);
+        window.addEventListener('load', updateOnlineStatus);
+    </script>
 </body>
 </html>
