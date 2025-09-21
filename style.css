@@ -43,7 +43,7 @@ body {
     top: 0;
     left: 0;
     width: 100%;
-    background-color: #e74c3c;
+    background-color: var(--light);
     color: white;
     text-align: center;
     padding: 8px 0;
