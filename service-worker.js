@@ -1,16 +1,16 @@
 // service-worker.js
 const CACHE_NAME = 'fuel-calculator-v1';
 const urlsToCache = [
-  '/',
-  '/index.html',
-  '/style.css',
-  '/script.js',
-  '/favicons/favicon-16x16.png',
-  '/icons/chevron-left.svg',
-  '/icons/chevron-right.svg',
-  '/icons/coins-solid-full.svg',
-  '/icons/fa--road.svg',
-  '/icons/tachometer-alt-solid.svg'
+  './',
+  './index.html',
+  './style.css', 
+  './script.js',
+  './favicons/favicon-16x16.png',
+  './icons/chevron-left.svg',
+  './icons/chevron-right.svg',
+  './icons/coins-solid-full.svg',
+  './icons/fa--road.svg',
+  './icons/tachometer-alt-solid.svg'
 ];
 
 // Устанавливаем Service Worker и кешируем файлы
