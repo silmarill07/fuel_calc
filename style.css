@@ -9,6 +9,7 @@
     --text-light: #bdc3c7;
     --border: #7f8c8d;
     --shadow: rgba(0, 0, 0, 0.3);
+    --success: #2ecc71;
     --transition: all 0.3s ease;
 }
 
@@ -33,6 +34,25 @@ body {
 .container {
     max-width: 1200px;
     width: 100%;
+}
+
+/* SVG иконки */
+.icon {
+    width: 24px;
+    height: 24px;
+    filter: brightness(0) invert(1); /* Делает иконки белыми */
+}
+
+.logo-icon {
+    width: 60px;
+    height: 60px;
+    filter: brightness(0) saturate(100%) invert(70%) sepia(78%) saturate(1665%) hue-rotate(126deg) brightness(96%) contrast(85%); /* Делает иконку цвета #1abc9c */
+}
+
+.nav-icon {
+    width: 20px;
+    height: 20px;
+    filter: brightness(0) invert(1); /* Белые иконки */
 }
 
 /* Splash Screen */
@@ -62,11 +82,6 @@ body {
     margin-bottom: 30px;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
     animation: pulse 2s infinite;
-}
-
-.logo i {
-    font-size: 60px;
-    color: var(--primary);
 }
 
 .app-name {
@@ -132,9 +147,10 @@ header {
     margin-right: 15px;
 }
 
-.slide-icon i {
-    color: white;
-    font-size: 1.5rem;
+.slide-icon .icon {
+    width: 24px;
+    height: 24px;
+    filter: brightness(0) invert(1); /* Белые иконки */
 }
 
 .slide-title {
@@ -229,8 +245,6 @@ header {
     align-items: center;
     justify-content: center;
     cursor: pointer;
-    font-size: 1.2rem;
-    color: var(--text);
     transition: var(--transition);
     box-shadow: 0 4px 10px var(--shadow);
 }
@@ -239,8 +253,11 @@ header {
 @media (hover: hover) {
     .nav-btn:hover {
         background-color: var(--primary);
-        color: white;
         transform: translateY(-3px);
+    }
+    
+    .nav-btn:hover .nav-icon {
+        filter: brightness(0) invert(1); /* Остаются белыми при hover */
     }
 }
 
@@ -248,7 +265,10 @@ header {
 .nav-btn:active {
     transform: translateY(0);
     background-color: var(--primary);
-    color: white;
+}
+
+.nav-btn:active .nav-icon {
+    filter: brightness(0) invert(1); /* Остаются белыми при active */
 }
 
 /* Indicators */
@@ -312,8 +332,9 @@ header {
         height: 100px;
     }
     
-    .logo i {
-        font-size: 50px;
+    .logo-icon {
+        width: 50px;
+        height: 50px;
     }
 }
 

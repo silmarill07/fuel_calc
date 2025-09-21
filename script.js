@@ -9,7 +9,7 @@ const calculationCards = [
     {
         id: 'cost',
         title: 'Вартість поїздки',
-        icon: 'fas fa-coins',
+        icon: 'coins-solid-full.svg',
         inputs: [
             { id: 'distance', label: 'Відстань (км)', type: 'number', placeholder: 'Введіть відстань' },
             { id: 'consumption', label: 'Витрата палива на 100 км (л)', type: 'number', placeholder: 'Введіть витрату палива' },
@@ -32,7 +32,7 @@ const calculationCards = [
     {
         id: 'distance',
         title: 'Можлива відстань',
-        icon: 'fas fa-road',
+        icon: 'fa--road.svg',
         inputs: [
             { id: 'fuel', label: 'Витрачене паливо (л)', type: 'number', placeholder: 'Введіть кількість палива' },
             { id: 'consumption', label: 'Витрата палива на 100 км (л)', type: 'number', placeholder: 'Введіть витрату палива' }
@@ -53,7 +53,7 @@ const calculationCards = [
     {
         id: 'consumption',
         title: 'Витрата палива',
-        icon: 'fas fa-tachometer-alt',
+        icon: 'tachometer-alt-solid.svg',
         inputs: [
             { id: 'distance', label: 'Пройдена відстань (км)', type: 'number', placeholder: 'Введіть відстань' },
             { id: 'fuel', label: 'Витрачене паливо (л)', type: 'number', placeholder: 'Введіть кількість палива' }
@@ -95,7 +95,7 @@ function initSlider() {
         
         const slideIcon = document.createElement('div');
         slideIcon.className = 'slide-icon';
-        slideIcon.innerHTML = `<i class="${card.icon}"></i>`;
+        slideIcon.innerHTML = `<img src="icons/${card.icon}" alt="${card.title}" class="icon">`;
         
         const slideTitle = document.createElement('h2');
         slideTitle.className = 'slide-title';
