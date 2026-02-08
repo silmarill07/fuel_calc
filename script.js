@@ -247,9 +247,11 @@ slider.addEventListener('touchend', (e) => {
 window.addEventListener('DOMContentLoaded', () => {
     initSlider();
     
-    // Hide splash screen after animation
+    // Hide splash screen after 3 seconds
     setTimeout(() => {
-        const splash = document.querySelector('.splash-screen');
-        if (splash) splash.style.display = 'none';
-    }, 3500);
+        const splash = document.getElementById('splashScreen');
+        if (splash) {
+            splash.style.display = 'none';
+        }
+    }, 3100); // 3.1 секунды (анимация заканчивается в 3 секунды)
 });
